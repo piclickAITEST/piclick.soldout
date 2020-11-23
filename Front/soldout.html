@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+
+  <!-- jQuery 3.3.1 -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- semantic ui -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous" />
+
+  <title>품절 교환추천</title>
+  <link rel="stylesheet" href="./soldout.css">
+  <script src="soldout.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row detail">
+      <div class="main">
+        <div id="mask">SOLD OUT</div>
+        <img id="mainImage" src="//shescloset.com/web/product/big/202010/0ae275caf55270643fd916de7588da16.jpg"></img>
+      </div>
+      <div id="product_name">수입니트 C-6079(4color)</div>
+      <div id="product_price">42,500<span>원</span></div>
+    </div>
+
+    <!-- <div class="row selection">
+      <button id="btn-exchange" class="ui primary button">
+        교환하기
+      </button>
+      <button id="btn-save" class="ui green button">
+        적립하기+ 
+      </button>
+      <button id="btn-refund" class="ui red button">
+        환불하기
+      </button>
+    </div> -->
+    <div class="row reco disabled">
+      <div class="piclick ai-reco">
+        <div id="title">AI 유사 상품 추천<span>유사한 스타일의 아이템과 비교해보세요.</span></div>
+        <div id="items">
+          <div id="item">
+            <a href=""> <img src="">
+              <div id="tag">상의 > 니트</div>
+              <div id="product_name">수입니트 C-6079(4color)</div>
+              <div id="product_price">42,500<span>원</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="piclick p-reco">
+        <div id="title">개인화 추천<span>최근 관심있게 본 상품들입니다.</span></div>
+        <div id="items">
+          <div id="item">
+            <a href=""> <img src="">
+              <div id="tag">상의 > 니트</div>
+              <div id="product_name">수입니트 C-6079(4color)</div>
+              <div id="product_price">42,500<span>원</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="piclick same-price">
+        <div id="title">동일 가격 상품 추천<span>본 상품과 비슷한 가격대의 유사 상품입니다.</span></div>
+        <div id="items">
+          <div id="item"></div>
+          <div id="item"></div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</body>
+
+</html>
