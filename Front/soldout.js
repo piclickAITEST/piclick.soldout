@@ -6,10 +6,12 @@ const contentUrl = '//shescloset.com/web/product/big/202010/0ae275caf55270643fd9
 const uID = '1379024132.1604381524';
 const userID = 'wlsdn2215';
 
-
+// 화폐 전환
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+// 유사 상품 추천
 const similarSearch = function() {
   $.ajax({
     type: "GET",
@@ -20,23 +22,20 @@ const similarSearch = function() {
     crossDomain: true,
     timeout: 30000,
     success: function(json) {
+      // console.log(json)
       var item = $('.ai-reco #item').clone();
       $('.ai-reco #item').remove();
-
       if (json.status == 'S') {
         $.each(json.result, function(idx, dict) {
           // clickList.push(dict.click_url);
-
           var $item = item.clone();
           $('img', $item).attr('src', dict.img_url);
           $('a', $item).attr('href', dict.click_url);
           $('#tag', $item).attr('src', dict.p_key);
           $('#product_name', $item).text(dict.product_name);
           $('#product_price', $item).text(numberWithCommas(dict.product_price) + '원');
-
           $('.ai-reco #items').append($item);
         })
-  
       }
     },
     error: function(e) {
@@ -45,6 +44,7 @@ const similarSearch = function() {
   })
 }
 
+// 개인화 추천
 const userSearch = function () {
   $.ajax({
     type: "GET",
@@ -58,28 +58,25 @@ const userSearch = function () {
       if (json.status == 'S') {
         var item = $('.p-reco #item').clone();
         $('.p-reco #item').remove();
-  
         if (json.status == 'S') {
           $.each(json.result, function(idx, dict) {
             // clickList.push(dict.click_url);
-  
             var $item = item.clone();
             $('img', $item).attr('src', dict.img_url);
-            $('a', $item).attr('href', dict.click_url);
+            $('a', $item).attr('href', dict.click_url + '&site_id=' + siteID + '&device=m');
             $('#tag', $item).attr('src', dict.p_key);
             $('#product_name', $item).text(dict.product_name);
             $('#product_price', $item).text(numberWithCommas(dict.product_price) + '원');
             $('.p-reco #items').append($item);
+            $('.button').attr('product_id', dict.p_key)
           })
-    
         }
       }
     }, error: function (e) {
+      console.log(e)
     }
   })
 }
 
 similarSearch();
 userSearch();
-
-
