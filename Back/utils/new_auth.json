@@ -1,0 +1,19 @@
+{
+    "access_token": "JMw6hgqfekmDueQQ1vH1kG",
+    "expires_at": "2020-11-25T15:50:19.000",
+    "refresh_token": "CxjZzimGKNLvmNLaao1s8B",
+    "refresh_token_expires_at": "2020-12-09T13:50:19.000",
+    "client_id": "L7ivavLkPdkreV7dh8njEG",
+    "mall_id": "rlackdals1",
+    "user_id": "piclick",
+    "scopes": [
+        "mall.read_application",
+        "mall.write_application",
+        "mall.read_category",
+        "mall.read_collection",
+        "mall.read_product",
+        "mall.read_store",
+        "mall.read_personal"
+    ],
+    "issued_at": "2020-11-25T13:50:19.000"
+}
