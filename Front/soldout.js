@@ -15,7 +15,7 @@ function numberWithCommas(x) {
 const similarSearch = function() {
   $.ajax({
     type: "GET",
-    url: 'https://sol.piclick.kr/similarSearch/'+ au_id +'/' +siteID+ '_' + productID + '?contentUrl=' + contentUrl + '&product_set_id=' + product_set_id + '&banner=True',
+    url: 'https://sol.piclick.kr/similarSearch/'+ au_id +'/' +siteID + '_' + productID + '?contentUrl=' + contentUrl + '&product_set_id=' + product_set_id + '&banner=True',
     processData: false,
     contentType: false,
     cache: false,
@@ -27,7 +27,6 @@ const similarSearch = function() {
       $('.ai-reco #item').remove();
       if (json.status == 'S') {
         $.each(json.result, function(idx, dict) {
-          // clickList.push(dict.click_url);
           var $item = item.clone();
           $('img', $item).attr('src', dict.img_url);
           $('a', $item).attr('href', dict.click_url);
@@ -55,6 +54,7 @@ const userSearch = function () {
     crossDomain: true,
     timeout: 5000,
     success: function (json) {
+      console.log(json)
       if (json.status == 'S') {
         var item = $('.p-reco #item').clone();
         $('.p-reco #item').remove();
@@ -68,7 +68,41 @@ const userSearch = function () {
             $('#product_name', $item).text(dict.product_name);
             $('#product_price', $item).text(numberWithCommas(dict.product_price) + '원');
             $('.p-reco #items').append($item);
-            $('.button').attr('product_id', dict.p_key)
+          })
+        }
+      }
+    }, error: function (e) {
+      console.log(e)
+    }
+  })
+}
+
+// 유사 가격대 추천
+const smaePrice = function () {
+  const pKey = siteID + "_" + au_id
+  $.ajax({
+    type: "GET",
+    url: 'https://sol.piclick.kr/soldoutSearch/similarPrice/' + au_id + '/' + pKey ,
+    processData: false,
+    contentType: false,
+    cache: false,
+    crossDomain: true,
+    timeout: 5000,
+    success: function (json) {
+      console.log(Object.keys(json.result).length)
+      if (json.status == 'S') {
+        var item = $('.same-price #item').clone();
+        $('.same-price #item').remove();
+        if (json.status == 'S') {
+          $.each(json.result, function(idx, dict) {
+            // clickList.push(dict.click_url);
+            var $item = item.clone();
+            $('img', $item).attr('src', dict.img_url);
+            $('a', $item).attr('href', dict.click_url + '&site_id=' + siteID + '&device=m');
+            $('#tag', $item).attr('src', dict.p_key);
+            $('#product_name', $item).text(dict.product_name);
+            $('#product_price', $item).text(numberWithCommas(dict.product_price) + '원');
+            $('.same-price #items').append($item);
           })
         }
       }
@@ -80,3 +114,4 @@ const userSearch = function () {
 
 similarSearch();
 userSearch();
+smaePrice();
