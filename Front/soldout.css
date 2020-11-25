@@ -21,8 +21,8 @@ html, body {
   max-height: 60vw;
 }
 
-.disabled {
-  visibility: collapse;
+[hidden] {
+  display: none;
 }
 
 .detail {
@@ -246,7 +246,7 @@ hr {
 .btn-list {
   width: 100%;
   height: 80px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
