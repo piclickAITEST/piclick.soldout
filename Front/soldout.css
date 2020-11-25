@@ -8,6 +8,10 @@ html, body {
   margin: 5% 0;
 }
 
+.container {
+  margin-bottom: 80px;
+}
+
 .main {
   position: relative;
   margin-bottom: 0;
@@ -39,16 +43,39 @@ html, body {
   overflow-x: scroll;
 }
 
-.selection-list {
+.selection-items {
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+
+.reco .selection-items {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.selection-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.selection-list .selection-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.selection-list select {
+  margin-bottom: 2px;
+  width: 100%
 }
 
 .selection-title {
   font-weight: 600;
   font-size: 16px;
 }
+
 
 select:focus{
   outline: none;
@@ -60,7 +87,21 @@ select{
   font-size: 14px;
   padding-left: 5px;
   padding-right: 5px;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-border-radius: 4px;
+  -webkit-appearance: none;
+  background: url(arrow.jpg) no-repeat right;
+  background-size: 20px;
+  background-position: 100% center;
+  font-size: 12px;
 }
+
+
+select::-ms-expand {
+  display: none;
+}
+
 
 #mainImage {
   width: 100%;
@@ -81,6 +122,14 @@ select{
   font-weight: 600;
   letter-spacing: 3px;
   user-select: none;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+#mask span{
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 #logo {
@@ -174,10 +223,14 @@ select{
 }
 .piclick #item #product_name {
   font-size: 12px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .piclick #item #product_price {
   font-size: 12px;
   font-weight: 600;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 a {
@@ -192,10 +245,13 @@ hr {
 
 .btn-list {
   width: 100%;
+  height: 80px;
   display:flex;
   justify-content: space-between;
   align-items: center;
-  /* background: #bbbbbb; */
+  position: fixed;
+  bottom: 0;
+  background: #fff;
   padding: 5px;
   opacity: 0.9;
 }
