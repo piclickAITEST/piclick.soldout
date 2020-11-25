@@ -366,7 +366,8 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: url(cancel.png) no-repeat;
+  background-size: 12px;
   margin: 0;
 }
 
