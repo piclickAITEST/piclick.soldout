@@ -5,6 +5,7 @@ const product_set_id = 'AIPIC_KR';
 const contentUrl = '//shescloset.com/web/product/big/202010/0ae275caf55270643fd916de7588da16.jpg';
 const uID = '1379024132.1604381524';
 const userID = 'wlsdn2215';
+const pKey = siteID + "_" + au_id
 
 // 화폐 전환
 function numberWithCommas(x) {
@@ -54,7 +55,6 @@ const userSearch = function () {
     crossDomain: true,
     timeout: 5000,
     success: function (json) {
-      console.log(json)
       if (json.status == 'S') {
         var item = $('.p-reco #item').clone();
         $('.p-reco #item').remove();
@@ -79,7 +79,6 @@ const userSearch = function () {
 
 // 유사 가격대 추천
 const smaePrice = function () {
-  const pKey = siteID + "_" + au_id
   $.ajax({
     type: "GET",
     url: 'https://sol.piclick.kr/soldoutSearch/similarPrice/' + au_id + '/' + pKey ,
@@ -89,7 +88,6 @@ const smaePrice = function () {
     crossDomain: true,
     timeout: 5000,
     success: function (json) {
-      console.log(Object.keys(json.result).length)
       if (json.status == 'S') {
         var item = $('.same-price #item').clone();
         $('.same-price #item').remove();
